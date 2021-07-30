@@ -1,26 +1,31 @@
+/*
+ * Do not modify this file
+ */
 
-
-#ifndef GRAPH_DATA_H
-#define GRAPH_DATA_H
+#ifndef BINTREE_DATA_H
+#define BINTREE_DATA_H
 
 #include <string>
 using std::string;
 
+// #include "edgelist.h"
+class EdgeList;
+
 struct Data {
     int id;
-    string data;
-
+    string information;
 };
 
 struct Vertex {
     Data data;
-    Vertex *next;
+    EdgeList *edge;
+    Vertex *nextVertex;
 };
 
 struct Edge {
     int weight;
-    Vertex** vertex;
-    Edge* nextEdge;
+    Vertex *vertex;
+    Edge *nextEdge;
 };
 
 #endif /* DATA_H */
