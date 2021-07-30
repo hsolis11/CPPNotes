@@ -1,10 +1,12 @@
-
 #ifndef GRAPH_H
 #define GRAPH_H
 
+#include <iostream>
 #include "data.h"
-#include "linkedlist.h"
-#include "stack.h"
+#include "edgelist.h"
+
+using std::cout;
+using std::endl;
 
 class Graph {
 
@@ -13,24 +15,20 @@ class Graph {
         ~Graph();
 
         bool isEmpty();
-        int vertices(); // get count of vertices
-        // int edges(); // get count of edges
-        // bool edgeExist(vertice, vertice); // See if edge exists between two given vertices
-        // bool addVertex(int, *string, int); // Add vertex to graph whose vertices have distinct, different values from new vertex
-        bool addEdge(Vertex, Vertex, int); // Add edge between two given vertices
-        // bool removeEdge(); // Remove edge between two given vertices
-        // bool removeVertex(); // Remove vertex to other vertices
-        // bool removeEdge(); // Remove edge to other vertices
-        // bool getVertex(); // Retrieve vertex that contains given value
-        // maybe sort?
-        // maybe shortest path?
-
-
+        int vertexCount();
+        int edgeCount();
+        bool edgeExists(int, int);
+        bool addVertex(int, string, int weight = -1);
+        bool addEdge(Vertex*, Vertex*, int);
+        bool removeEdge(int, int);
+        bool removeVertex(int); // remove vertex and all its edges
+        bool getVertex(int, Data*);
 
     private:
-        int count;
         Vertex *vertex;
+        int vertexcount;
+        int edgecount;
+};
 
-}
+#endif 
 
-#endif
